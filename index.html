@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Info</title>
+    <script>
+        async function loadWeather() {
+            const res = await fetch('/weather');
+            const data = await res.json();
+            const container = document.getElementById('weather');
+            data.forEach(item => {
+                const el = document.createElement('p');
+                el.textContent = `Location: ${item.location}, Temp: ${item.temperature}, Condition: ${item.condition}`;
+                container.appendChild(el);
+            });
+        }
+        window.onload = loadWeather;
+    </script>
+</head>
+<body>
+    <h1>Today's Weather</h1>
+    <div id="weather"></div>
+</body>
+</html>
