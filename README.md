@@ -1,4 +1,4 @@
-🌦️ Weather Info Web Page (Enhanced Version)
+🌦️ Weather Info Web Page
 
 Welcome to the Weather Info Web Page — a simple and elegant web application that displays weather information through a static HTML interface. This project is entirely Dockerized and leverages Python's built-in HTTP server for rapid deployment and portability.
 
