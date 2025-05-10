@@ -1,77 +1,79 @@
-🌦️ Weather Info Web Page
+# ☀️ Weather Info App
 
-Welcome to the Weather Info Web Page — a simple and elegant web application that displays weather information through a static HTML interface. This project is entirely Dockerized and leverages Python's built-in HTTP server for rapid deployment and portability.
-
-🧭 Overview
-
-This project aims to demonstrate how you can package a lightweight static webpage into a fully functional containerized service using Docker. It's perfect for:
-
-🚀 Learning Docker basics
-📡 Hosting minimal apps or dashboards
-🎓 Teaching environments or DevOps demos
-🔧 Technologies Used
-
-HTML5/CSS3 — for the weather page layout
-Python 3.x — using http.server as the backend
-Docker & Docker Compose — for containerization
-GitHub Actions — basic CI/CD pipeline (if configured)
-📂 Project Structure
-
-weather-info/
-├── index.html                  # Static weather page
-├── Dockerfile                  # Docker build instructions
-├── docker-compose.yml          # Orchestration setup
-└── .github/
-    └── workflows/
-        └── test.yml            # GitHub Actions CI pipeline
-🚀 Running the Project Locally
-
-Prerequisites
-
-Ensure you have the following installed:
-
-Docker ≥ 20.10
-Docker Compose ≥ 1.29
-Steps
-
-# Clone the repository
-git clone https://github.com/your-username/weather-info.git
-cd weather-info
-
-# Build and run the container
-docker-compose up --build
-🖥 Open your browser and visit:
-👉 http://localhost:5000
-
-📦 Docker Compose Configuration
-
-version: '3.8'
-
-services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-This exposes the weather page on localhost:5000.
-
-🧪 Continuous Integration
-
-This project optionally supports CI with GitHub Actions:
-
-Workflow location: .github/workflows/test.yml
-Auto-triggers on every push to validate the container
-📥 Download
-
-A packaged version of this project is available as a ZIP archive:
-📎 Download weather-project.zip
-
-📸 Optional Preview
-
-(Insert a screenshot if available)
+Интерактивное веб-приложение на Flask, которое отображает текущую погоду по нескольким локациям. Доступно в Docker-контейнере и поддерживает работу с PostgreSQL через docker-compose.
 
 ---
 
-## 📝 License
+## 🚀 Быстрый старт
 
-This project is licensed under the **MIT License**.  
-Feel free to fork, modify, and deploy.
+### 📦 С Docker
+```bash
+docker-compose up --build
+```
+
+Открой в браузере: [http://localhost:5000](http://localhost:5000)
+
+---
+
+### 🐘 С Базой Данных
+```bash
+docker-compose -f docker-compose-with-db.yml up --build
+```
+
+> Образ PostgreSQL автоматически поднимается и доступен по адресу: `postgres://user:password@db/weather`
+
+---
+
+## 📁 Структура проекта
+
+```
+weather-app/
+├── app.py                      # Основное Flask-приложение
+├── templates/
+│   └── index.html              # HTML-шаблон интерфейса
+├── requirements.txt            # Зависимости Python
+├── Dockerfile                  # Docker-инструкция
+├── docker-compose.yml          # Docker-сборка без БД
+├── docker-compose-with-db.yml  # Docker-сборка с PostgreSQL
+├── test.yml                    # GitHub Actions CI
+└── README.md                   # Документация
+```
+
+---
+
+## 🌐 Интерфейс
+
+Простой и информативный UI:
+
+![UI Screenshot](https://via.placeholder.com/600x200.png?text=Weather+UI+Preview)
+
+---
+
+## 🧪 Тестирование (CI)
+
+Файл `test.yml` настроен для запуска на GitHub Actions:
+
+- Проверка зависимостей
+- Юнит-тесты
+- CI при `push`
+
+---
+
+## ⚙️ Зависимости
+
+- Python 3.10
+- Flask
+- psycopg2-binary
+- Docker & Docker Compose
+
+---
+
+## 📬 Обратная связь
+
+Создавай issue или pull request — будем рады доработкам! 🙌
+
+---
+
+## 📝 Лицензия
+
+MIT License. Используй свободно — и не забудь поставить ⭐️ :)
